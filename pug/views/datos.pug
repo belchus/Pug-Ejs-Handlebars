@@ -45,7 +45,7 @@ block datos
 
     h2='Listado de productos'
 
-    if productsQty
+    if productos
         table
             thead
                 tr
@@ -53,7 +53,7 @@ block datos
                     th='Price'
                     th='Thumbnail'
             tbody
-                each product in allProducts
+                each product in misProd
                     tr
                         td=product.title
                         td=product.price

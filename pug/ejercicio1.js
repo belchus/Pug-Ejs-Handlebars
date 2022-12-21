@@ -27,10 +27,10 @@ app.post('/productos', (req, res) => {
 })
 
 app.get('/productos', async (req, res) => {
-    const allProducts = await products.getAll()
+    const misProd = await products.getAll()
     res.render('datos', {
-        allProducts: allProducts,
-        productsQty: allProducts.length
+        misProd: misProd,
+        productos: misProd.length
     })
 })
 
