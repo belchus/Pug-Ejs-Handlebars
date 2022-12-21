@@ -1,0 +1,1 @@
+En mi opinion personal me gusta mas PUG porque es mucho mas limpio y bonito,ademas de que me gusta mucho su sintaxis,pero por otro lado tambien eligiria EJS porque domino mucho mejor HTML y le encuentro muchas similitudes,a diferencia de que PUG lo veo diferente,sin embargo una vez que lo entendes es muy facil de usar en mi opinion.
