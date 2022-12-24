@@ -14,11 +14,16 @@ server.on('error', error => console.log(`Error en servidor, ${error}`))
 
 const products = new Container('productos.txt')
 
-app.use(express.static('./public'))
+//app.use(express.static('./public'))
 app.set('views','./views' )
 app.set('view engine', 'pug')
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+
+app.get('/', async (req, res) => {
+    res.render('form.pug')
+  })
+
 
 app.post('/productos', (req, res) => {
     const newProduct = req.body
@@ -34,6 +39,11 @@ app.get('/productos', async (req, res) => {
     })
 })
 
+app.post('/addProduct', async (req, res) =>{
+    const savedProduct = await products.save(req.body)
+    res.redirect("/productos")
+    // res.json(savedProduct)
+})
 
 
 //routeProducts.get('/', (req, res) => {

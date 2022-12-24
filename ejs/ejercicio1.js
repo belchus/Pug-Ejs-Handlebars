@@ -11,12 +11,15 @@ const server = app.listen(PORT, () =>{
 server.on('error', error => console.log(`Error en servidor, ${error}`))
 
 const products = new Container('productos.txt')
-app.use(express.static('./public'))
+//app.use(express.static('./public'))
 app.set('view engine', 'ejs')
 app.set('views','./views' )
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+app.get('/', async (req, res) => {
+    res.render('layout/form.ejs')
+  })
 
 app.post('/productos', (req, res) => {
     const producto = req.body
@@ -33,6 +36,6 @@ app.get('/productos', async (req, res) => {
 })
 app.post('/addProduct', async (req, res) =>{
     const savedProduct = await products.save(req.body)
-    res.json(savedProduct)
+    res.redirect("/productos")
+    // res.json(savedProduct)
 })
-

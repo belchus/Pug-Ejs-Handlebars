@@ -24,7 +24,7 @@ app.set('views', './views')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static('public'))
+//app.use(express.static('public'))
 
 
 const products = new Container('productos.txt')
@@ -34,6 +34,9 @@ app.post('/productos', (req, res) => {
     products.save(newProduct)
     res.redirect('/')
 })
+app.get('/', async (req, res) => {
+    res.render('form.handlebars')
+  })
 
 app.get('/productos', async (req, res) => {
     const misProd = await products.getAll()
@@ -41,4 +44,9 @@ app.get('/productos', async (req, res) => {
         misProd: misProd,
         productos: misProd.length
     })
+})
+app.post('/addProduct', async (req, res) =>{
+    const savedProduct = await products.save(req.body)
+    res.redirect("/productos")
+    // res.json(savedProduct)
 })

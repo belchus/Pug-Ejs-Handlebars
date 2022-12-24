@@ -1,0 +1,29 @@
+
+
+block form
+ div.container
+
+  h1 Ingreso de nuevo accesorio
+
+  form(class="formulario" action="/addProduct" method="POST")
+
+    label(for="title" ) Producto
+
+    input(type="text" id="title" name="title"  value=title)
+
+    label(for="price") Precio
+
+    input(type="text"  name="price" class="price" value=price)
+
+    label(for="thumbnail") Imagen
+
+    input(type="text" class="thumbnail" name="thumbnail"  value=thumbnail)
+
+    button(class="sendBtn" type="submit") Enviar
+
+    div
+
+    a( class="link" href="/productos") Ver listado de productos
+
+
+            
